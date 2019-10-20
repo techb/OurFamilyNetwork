@@ -449,4 +449,16 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
     return '<h2>' . $content . '</h2>';
 }
 
+/*------------------------------------*\
+	K.B.'s Functions
+\*------------------------------------*/
+
+// pretty var_dump()
+function var_dumpp($x){
+	echo "<pre>";
+	print_r($x);
+	echo "</pre>";
+}
+
+
 ?>

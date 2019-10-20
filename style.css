@@ -8,7 +8,7 @@
 */
 
 /*------------------------------------*\
-    MAIN
+	MAIN
 \*------------------------------------*/
 
 /* global box-sizing */
@@ -28,19 +28,21 @@ html {
 body {
 	font:300 11px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color:#444;
+	height: 100%;
+	height:100%;
 }
 /* clear */
 .clear:before,
 .clear:after {
-    content:' ';
-    display:table;
+	content:' ';
+	display:table;
 }
 
 .clear:after {
-    clear:both;
+	clear:both;
 }
 .clear {
-    *zoom:1;
+	*zoom:1;
 }
 img {
 	max-width:100%;
@@ -66,27 +68,30 @@ input:focus {
 }
 
 /*------------------------------------*\
-    STRUCTURE
+	STRUCTURE
 \*------------------------------------*/
 
 /* wrapper */
 .wrapper {
 	max-width:1280px;
-	width:95%;
-	margin:0 auto;
-	position:relative;
+	position: relative;
+	display: flex;
+	margin-top: 50px;
+	padding-right: 50px;
+	padding-left: 50px;
 }
 /* header */
 .header {
-
+	height: 300px;
 }
-/* logo */
-.logo {
-
+.hero {
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
 }
-.logo-img {
 
-}
 /* nav */
 .nav {
 
@@ -97,17 +102,134 @@ input:focus {
 }
 /* footer */
 .footer {
-
+	text-align: center;
+	width: 100%;
+	height: 60px;   /* Height of the footer */
 }
 
 /*------------------------------------*\
-    PAGES
+	PAGES
 \*------------------------------------*/
 
+/*
+	Home Page
+*/
+#timeline {
+	display: flex;
+	background-color: #031625;
+	margin-left: -50px;
+	margin-right: -50px;
+  }
+  #timeline:hover .tl-item {
+	width: 23.3333%;
+  }
 
+  .tl-item {
+	transform: translate3d(0, 0, 0);
+	position: relative;
+	width: 25%;
+	min-height: 600px;
+	color: #fff;
+	overflow: hidden;
+	transition: width 0.5s ease;
+  }
+  .tl-item:before, .tl-item:after {
+	transform: translate3d(0, 0, 0);
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+  }
+  .tl-item:after {
+	background: rgba(3, 22, 37, 0.85);
+	opacity: 1;
+	transition: opacity 0.5s ease;
+  }
+  .tl-item:before {
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 75%);
+	z-index: 1;
+	opacity: 0;
+	transform: translate3d(0, 0, 0) translateY(50%);
+	transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .tl-item:hover {
+	width: 30% !important;
+  }
+  .tl-item:hover:after {
+	opacity: 0;
+  }
+  .tl-item:hover:before {
+	opacity: 1;
+	transform: translate3d(0, 0, 0) translateY(0);
+	transition: opacity 1s ease, transform 1s ease 0.25s;
+  }
+  .tl-item:hover .tl-content {
+	opacity: 1;
+	transform: translateY(0);
+	transition: all 0.75s ease 0.5s;
+  }
+  .tl-item:hover .tl-bg {
+	filter: grayscale(0);
+  }
+  .tl-item a {
+	  color: inherit;
+  }
+  .tl-item a:hover {
+	  color: inherit;
+  }
+  .tl-content {
+	transform: translate3d(0, 0, 0) translateY(25px);
+	position: relative;
+	z-index: 1;
+	text-align: center;
+	margin: 0 1.618em;
+	top: 35%;
+	opacity: 0;
+  }
+  .tl-content h1 {
+	font-family: "Pathway Gothic One", Helvetica Neue, Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 1.8rem;
+	font-weight: heavy;
+  }
+  .tl-content p {
+	  font-size: 1.5em;
+  }
+
+  .tl-year {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	z-index: 1;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+  }
+  .tl-year p {
+	font-family: "Pathway Gothic One", Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 1.728rem;
+	line-height: 0;
+	font-weight: heavy;
+  }
+
+  .tl-bg {
+	transform: translate3d(0, 0, 0);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-size: cover;
+	background-position: center center;
+	transition: filter 0.5s ease;
+	filter: grayscale(100%);
+  }
 
 /*------------------------------------*\
-    IMAGES
+	IMAGES
 \*------------------------------------*/
 
 
@@ -123,12 +245,12 @@ input:focus {
 		url('fonts/font-name.woff') format('woff'),
 		url('fonts/font-name.ttf') format('truetype'),
 		url('fonts/font-name.svg#font-name') format('svg');
-    font-weight:normal;
-    font-style:normal;
+	font-weight:normal;
+	font-style:normal;
 }
 
 /*------------------------------------*\
-    RESPONSIVE
+	RESPONSIVE
 \*------------------------------------*/
 
 @media only screen and (min-width:320px) {
@@ -155,7 +277,7 @@ input:focus {
 }
 
 /*------------------------------------*\
-    MISC
+	MISC
 \*------------------------------------*/
 
 ::selection {
@@ -175,7 +297,7 @@ input:focus {
 }
 
 /*------------------------------------*\
-    WORDPRESS CORE
+	WORDPRESS CORE
 \*------------------------------------*/
 
 .alignnone {
@@ -249,7 +371,7 @@ a img.aligncenter {
 }
 
 /*------------------------------------*\
-    PRINT
+	PRINT
 \*------------------------------------*/
 
 @media print {
