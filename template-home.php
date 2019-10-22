@@ -20,17 +20,15 @@ if( is_user_logged_in() ){
 					'start_date' => 'now',
 				);
 				$events = tribe_get_events($args);
-				// var_dumpp( $events );
-
 				foreach( $events as $event ){ ?>
 					<div class="tl-item">
 						<div class="tl-bg" style="background-image: url(<?php echo get_the_post_thumbnail_url($event->ID); ?>)"></div>
 						<a href="<?php echo $event->guid; ?>">
 							<div class="tl-year">
+								<h2><?php echo $event->post_title; ?></h2>
 								<p class="f2 heading--sanSerif"><?php echo date( "M  d  Y", strtotime($event->event_date) ); ?></p>
 							</div>
 							<div class="tl-content">
-								<h1><?php echo $event->post_title; ?></h1>
 								<p><?php echo $event->post_excerpt; ?></p>
 							</div>
 						</a>
