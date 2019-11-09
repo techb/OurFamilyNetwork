@@ -36,7 +36,8 @@ if( is_user_logged_in() ){
 									<p class="f2 heading--sanSerif"><?php echo date( "M  d  Y", strtotime($event->event_date) ); ?></p>
 								</div>
 								<div class="tl-content">
-									<p><?php echo $event->post_excerpt; ?></p>
+									<p><?php echo empty($event->post_excerpt) ? wp_trim_words($event->post_content, 45, '...') : $event->post_excerpt; ?></p>
+									<?php //var_dumpp($event); ?>
 								</div>
 							</a>
 						</div>

@@ -347,6 +347,69 @@ input:focus {
 	display: none;
 }
 
+.tribe-events-single h1 {
+	font-size: 35px !important;
+	margin-top: 5% !important;
+}
+
+.tribe-events-content h2 {
+	font-size: 27px;
+}
+
+.tribe-events-schedule h2 {
+	margin-top: 0;
+	margin-bottom: 5%;
+}
+
+.comments h2 {
+	display: none;
+}
+
+.comments ul {
+	list-style: none;
+}
+
+.comments .comment-respond .comment-reply-title {
+	display: none;
+}
+
+.comments .comment-respond .comment-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.comments .comment-respond .comment-form .logged-in-as {
+	display: none;
+}
+
+.comments .comment-respond .comment-form .comment-form-comment {
+	display: flex;
+	flex-direction: column;
+}
+
+.comments .comment-respond .comment-form .comment-form-comment label {
+	display: none;
+}
+
+.comments .comment-respond .comment-form .comment-form-comment textarea {
+	max-width: 500px;
+}
+
+.comment-body {
+	padding-bottom: 2%;
+}
+
+.vcard img {
+	display: none;
+}
+
+.vcard .fn {
+	font-size: 20px;
+	font-style: normal;
+	text-transform: uppercase;
+	margin-left: -25px;
+}
+
 /*------------------------------------*\
 	IMAGES
 \*------------------------------------*/
