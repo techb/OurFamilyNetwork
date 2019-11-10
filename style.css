@@ -361,6 +361,134 @@ input:focus {
 	margin-bottom: 5%;
 }
 
+.add-a-dish {
+	display: inline-block;
+	width: 150px;
+	cursor: pointer;
+}
+
+.add-a-dish i {
+	font-size: 30px;
+}
+
+.add-a-dish p {
+	float: right;
+	padding-left: 5%;
+	font-weight: bold;
+}
+
+.fadeIn {
+	animation: fadeIn ease 1s;
+	-webkit-animation: fadeIn ease 1s;
+	-moz-animation: fadeIn ease 1s;
+	-o-animation: fadeIn ease 1s;
+	-ms-animation: fadeIn ease 1s;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity:0;
+	}
+	100% {
+		opacity:1;
+	}
+}
+@-moz-keyframes fadeIn {
+	0% {
+		opacity:0;
+	}
+	100% {
+		opacity:1;
+	}
+}
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity:0;
+	}
+	100% {
+		opacity:1;
+	}
+}
+@-o-keyframes fadeIn {
+	0% {
+		opacity:0;
+	}
+	100% {
+		opacity:1;
+}
+}
+@-ms-keyframes fadeIn {
+	0% {
+		opacity:0;
+	}
+	100% {
+		opacity:1;
+	}
+}
+
+.bring-it {
+	background-color: #fafafa;
+}
+
+.bring-it-form {
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+.bring-it-form ul {
+	list-style: none;
+}
+
+.input-container {
+	display: flex;
+}
+
+.input-container * {
+	font-size: 17px;
+}
+
+.description {
+	/* display: none; */
+}
+
+#categroy-container span input, #categroy-container span label {
+	margin: 0;
+}
+
+#categroy-container span input, #vegan-section span input {
+	position: relative;
+	top: 20px;
+}
+
+#categroy-container span label, #vegan-section span label {
+	display: inline-block;
+	width: 160px;
+	padding-left: 15%;
+}
+
+#dish-desc {
+	padding-top: 10%;
+	padding-bottom: 8px;
+}
+
+#short_desc {
+	width: 214px;
+}
+
+#vegan-section {
+	padding-left: 5%;
+}
+
+.last-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.last-section .buttons {
+	padding-top: 10%;
+}
+
 .comments h2 {
 	display: none;
 }
@@ -395,6 +523,11 @@ input:focus {
 	max-width: 500px;
 }
 
+.comment-meta a {
+	font-style: italic;
+	font-size: 15px;
+}
+
 .comment-body {
 	padding-bottom: 2%;
 }
@@ -406,7 +539,6 @@ input:focus {
 .vcard .fn {
 	font-size: 20px;
 	font-style: normal;
-	text-transform: uppercase;
 	margin-left: -25px;
 }
 

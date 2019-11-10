@@ -100,6 +100,9 @@ function html5blank_header_scripts()
 
 		wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
 		wp_enqueue_script('html5blankscripts'); // Enqueue it!
+
+		wp_register_script('font_awesome', 'https://use.fontawesome.com/e4a93e490c.js', array(), '5.11.2'); // Custom scripts
+		wp_enqueue_script('font_awesome'); // Enqueue it!
 	}
 }
 
