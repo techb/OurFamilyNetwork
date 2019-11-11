@@ -308,7 +308,6 @@ $event_id = get_the_ID();
 							data: JSON.stringify( payload ),
 							processData: false,
 							success: function( data, textStatus, jQxhr ){
-								console.log("Bruh");
 								console.log(data);
 							},
 							error: function( jqXhr, textStatus, errorThrown ){
