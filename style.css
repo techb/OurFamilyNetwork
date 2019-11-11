@@ -439,6 +439,10 @@ input:focus {
 	list-style: none;
 }
 
+.bring-it-content {
+	display: flex;
+}
+
 .input-container {
 	display: flex;
 }

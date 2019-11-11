@@ -76,6 +76,7 @@ $event_id = get_the_ID();
 			<!-- Items people are bringing -->
 			<?php
 				$items = json_decode(get_field('bring_it'), true);
+				$items_users = array();
 				if( !empty($_POST["user_id"]) ){
 					if( !isset( $items['all_items'] ) ){
 						$items = array('all_items' => array());
@@ -83,65 +84,191 @@ $event_id = get_the_ID();
 					array_pop($_POST);
 					$items['all_items'][] = $_POST;
 				}
+				foreach( $items['all_items'] as $item ){
+					$items_users[] = $item['user_id'];
+				}
+				$items_users = array_unique($items_users);
+
 				update_field('bring_it', json_encode($items));
 				$user = wp_get_current_user();
 				$allowed_roles = array('editor', 'administrator', 'author', 'subscriber');
-				if( array_intersect($allowed_roles, $user->roles ) ){ ?>
-					<div class="add-a-dish"><i class="fa fa-plus-square"></i><p>Add a dish!</p></div>
-					<div class="bring-it">
-						<div class="bring-it-content">
-						</div>
 
-						<div class="bring-it-add">
-							<form id="bring-it-form" class="bring-it-form hide-me"  method="post" action="">
-								<ul class="input-container">
-									<li id="categroy-container" >
-										<label class="description" for="categroy">Category </label>
+
+				// var_dumpp($items['all_items']);
+				?>
+
+
+				<div class="bring-it">
+					<div class="bring-it-content">
+						<?php if(!empty($items['all_items'])){ ?>
+							<div class="appetizers">
+								<h2>Appetizers</h2>
+								<ul class="bring-it-items">
+									<?php foreach($items['all_items'] as $item){
+										if($item['categroy'] == "appetizers"){ ?>
+											<li class="bring-it-item">
+												<?php
+													if(
+														array_intersect($allowed_roles, $user->roles )
+														&& get_current_user_id() == $item['user_id']
+													){
+												?>
+													<button id="<?php echo $item['dish_id']; ?>" class="remove-item">Delete</button>
+												<?php } ?>
+												<span class="user"><?php echo get_user_by('id', $item['user_id'])->first_name; ?></span>
+												<h3>
+													<?php echo $item['dish_name']; ?>
+													<?php if($item['vegan']){ ?>
+														<i class="fa fa-leaf"></i>
+													<?php } ?>
+												</h3>
+												<p class="short-desc hide-me"><?php echo $item['short_desc'] ?></p>
+											</li>
+										<?php } ?>
+									<?php } ?>
+								</ul>
+							</div>
+
+							<div class="main-dishes">
+								<h2>Main Dishes</h2>
+								<ul class="bring-it-items">
+									<?php foreach($items['all_items'] as $item){
+										if($item['categroy'] == "main_dish"){ ?>
+											<li class="bring-it-item">
+												<?php
+													if(
+														array_intersect($allowed_roles, $user->roles )
+														&& get_current_user_id() == $item['user_id']
+													){
+												?>
+													<button id="<?php echo $item['dish_id']; ?>" class="remove-item">Delete</button>
+												<?php } ?>
+												<span class="user"><?php echo get_user_by('id', $item['user_id'])->first_name; ?></span>
+												<h3>
+													<?php echo $item['dish_name']; ?>
+													<?php if($item['vegan']){ ?>
+														<i class="fa fa-leaf"></i>
+													<?php } ?>
+												</h3>
+												<p class="short-desc hide-me"><?php echo $item['short_desc'] ?></p>
+											</li>
+										<?php } ?>
+									<?php } ?>
+								</ul>
+							</div>
+
+							<div class="beverages">
+								<h2>Beverages</h2>
+								<ul class="bring-it-items">
+									<?php foreach($items['all_items'] as $item){
+										if($item['categroy'] == "beverages"){ ?>
+											<li class="bring-it-item">
+												<?php
+													if(
+														array_intersect($allowed_roles, $user->roles )
+														&& get_current_user_id() == $item['user_id']
+													){
+												?>
+													<button id="<?php echo $item['dish_id']; ?>" class="remove-item">Delete</button>
+												<?php } ?>
+												<span class="user"><?php echo get_user_by('id', $item['user_id'])->first_name; ?></span>
+												<h3>
+													<?php echo $item['dish_name']; ?>
+													<?php if($item['vegan']){ ?>
+														<i class="fa fa-leaf"></i>
+													<?php } ?>
+												</h3>
+												<p class="short-desc hide-me"><?php echo $item['short_desc'] ?></p>
+											</li>
+										<?php } ?>
+									<?php } ?>
+								</ul>
+							</div>
+
+							<div class="desserts">
+								<h2>Desserts</h2>
+								<ul class="bring-it-items">
+									<?php foreach($items['all_items'] as $item){
+										if($item['categroy'] == "desserts"){ ?>
+											<li class="bring-it-item">
+												<?php
+													if(
+														array_intersect($allowed_roles, $user->roles )
+														&& get_current_user_id() == $item['user_id']
+													){
+												?>
+													<button id="<?php echo $item['dish_id']; ?>" class="remove-item">Delete</button>
+												<?php } ?>
+												<span class="user"><?php echo get_user_by('id', $item['user_id'])->first_name; ?></span>
+												<h3>
+													<?php echo $item['dish_name']; ?>
+													<?php if($item['vegan']){ ?>
+														<i class="fa fa-leaf"></i>
+													<?php } ?>
+												</h3>
+												<p class="short-desc hide-me"><?php echo $item['short_desc'] ?></p>
+											</li>
+										<?php } ?>
+									<?php } ?>
+								</ul>
+							</div>
+						<?php } ?>
+					</div>
+				</div>
+
+				<?php if( array_intersect($allowed_roles, $user->roles ) ){ ?>
+					<div class="add-a-dish"><i class="fa fa-plus-square"></i><p>Add a dish!</p></div>
+					<div class="bring-it-add">
+						<form id="bring-it-form" class="bring-it-form hide-me"  method="post" action="">
+							<ul class="input-container">
+								<li id="categroy-container" >
+									<label class="description" for="categroy">Category </label>
+									<span>
+										<input id="element_3_1" name="categroy" class="element radio" type="radio" value="appetizers" />
+										<label class="choice" for="element_3_1">Appetizers</label>
+										<input id="element_3_2" name="categroy" class="element radio" type="radio" value="main_dish" />
+										<label class="choice" for="element_3_2">Main Dishes</label>
+										<input id="element_3_3" name="categroy" class="element radio" type="radio" value="desserts" />
+										<label class="choice" for="element_3_3">Desserts</label>
+										<input id="element_3_4" name="categroy" class="element radio" type="radio" value="beverages" />
+										<label class="choice" for="element_3_4">Beverages</label>
+									</span>
+								</li>
+
+								<ul class="name-desc">
+									<li id="dish-name" >
+										<label class="description" for="dish_name">Dish Name </label>
+										<div>
+											<input id="dish_name" name="dish_name" class="element text medium" type="text" maxlength="255" value=""/>
+										</div>
+									</li>
+									<li id="dish-desc" >
+										<label class="description" for="short_desc">Short Description </label>
+										<div>
+											<textarea id="short_desc" name="short_desc" class="element textarea small"></textarea>
+										</div>
+									</li>
+								</ul>
+
+								<ul class="last-section">
+									<li id="vegan-section" >
+										<label class="description" for="vegan"> </label>
 										<span>
-											<input id="element_3_1" name="categroy" class="element radio" type="radio" value="appetizers" />
-											<label class="choice" for="element_3_1">Appetizers</label>
-											<input id="element_3_2" name="categroy" class="element radio" type="radio" value="main_dish" />
-											<label class="choice" for="element_3_2">Main Dishes</label>
-											<input id="element_3_3" name="categroy" class="element radio" type="radio" value="desserts" />
-											<label class="choice" for="element_3_3">Desserts</label>
-											<input id="element_3_4" name="categroy" class="element radio" type="radio" value="beverages" />
-											<label class="choice" for="element_3_4">Beverages</label>
+											<input id="vegan" name="vegan" class="element checkbox" type="checkbox" value="1" />
+											<label class="choice" for="vegan">Vegan</label>
 										</span>
 									</li>
 
-									<ul class="name-desc">
-										<li id="dish-name" >
-											<label class="description" for="dish_name">Dish Name </label>
-											<div>
-												<input id="dish_name" name="dish_name" class="element text medium" type="text" maxlength="255" value=""/>
-											</div>
-										</li>
-										<li id="dish-desc" >
-											<label class="description" for="short_desc">Short Description </label>
-											<div>
-												<textarea id="short_desc" name="short_desc" class="element textarea small"></textarea>
-											</div>
-										</li>
-									</ul>
-
-									<ul class="last-section">
-										<li id="vegan-section" >
-											<label class="description" for="vegan"> </label>
-											<span>
-												<input id="vegan" name="vegan" class="element checkbox" type="checkbox" value="1" />
-												<label class="choice" for="vegan">Vegan</label>
-											</span>
-										</li>
-
-										<li class="buttons">
-											<input type="hidden" name="user_id" value="<?php echo get_current_user_id(); ?>" />
-											<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
-										</li>
-									</ul>
+									<li class="buttons">
+										<input type="hidden" name="user_id" value="<?php echo get_current_user_id(); ?>" />
+										<input type="hidden" name="dish_id" value="<?php echo generateRandomString(); ?>" />
+										<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+									</li>
 								</ul>
-							</form>
-						</div>
+							</ul>
+						</form>
 					</div>
+
 				<?php }
 			?>
 			<!-- Event meta -->
@@ -163,6 +290,33 @@ $event_id = get_the_ID();
 				document.querySelector(".bring-it-form").classList.toggle("hide-me");
 				document.querySelector(".bring-it-form").classList.toggle("fadeIn");
 			});
+
+			<?php if( in_array(get_current_user_id(), $items_users) ){ ?>
+				const delete_btns = document.querySelectorAll(".remove-item");
+				console.log( delete_btns );
+				for(let i = 0; i < delete_btns.length; i++){
+					delete_btns[i].addEventListener("click", function(){
+						const payload = {
+							'remove_bringit_item': true,
+							'page_id': <?php echo get_the_ID()?>,
+							'item_id': this.id,
+							'user_id': <?php echo get_current_user_id(); ?>
+						};
+						jQuery.ajax({
+							url: '/api/',
+							type: 'post',
+							data: JSON.stringify( payload ),
+							processData: false,
+							success: function( data, textStatus, jQxhr ){
+								console.log(data);
+							},
+							error: function( jqXhr, textStatus, errorThrown ){
+								console.log( errorThrown );
+							}
+						});
+					});
+				}
+			<?php } ?>
 
 			// TO-Do: add collapsing comments
 
