@@ -98,7 +98,7 @@ $event_id = get_the_ID();
 				?>
 
 
-				<div class="bring-it">
+				<div class="bring-it hide-me">
 					<div class="bring-it-content">
 						<?php if(!empty($items['all_items'])){ ?>
 							<div class="appetizers">
@@ -217,8 +217,8 @@ $event_id = get_the_ID();
 				</div>
 
 				<?php if( array_intersect($allowed_roles, $user->roles ) ){ ?>
-					<div class="add-a-dish"><i class="fa fa-plus-square"></i><p>Add a dish!</p></div>
-					<div class="bring-it-add">
+					<div class="add-a-dish hide-me"><i class="fa fa-plus-square"></i><p>Add a dish!</p></div>
+					<div class="bring-it-add hide-me">
 						<form id="bring-it-form" class="bring-it-form hide-me"  method="post" action="">
 							<ul class="input-container">
 								<li id="categroy-container" >
