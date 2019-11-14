@@ -192,6 +192,10 @@ input:focus {
 	Home Page
 */
 
+#primary {
+	overflow: auto;
+}
+
 .featured-content {
 	font-size: 18px;
 	margin: 90px 0;
@@ -572,6 +576,10 @@ input:focus {
 	font-size: 20px;
 	font-style: normal;
 	margin-left: -25px;
+	text-decoration: underline;
+}
+.vcard .fn a {
+	color: #0F1F2C;
 }
 
 /*------------------------------------*\
@@ -599,6 +607,59 @@ input:focus {
 @media only screen and (min-width:480px) {}
 
 @media only screen and (min-width:768px) {}
+
+@media only screen and (min-width:850px) {
+	.site-main > .mobile {
+		display: none !important;
+	}
+}
+@media only screen and (max-width:850px) {
+
+	/* HOME PAGE */
+	.site-main > .desktop {
+		display: none !important;
+	}
+	.featured-content {
+		min-width: auto;
+		flex-wrap: wrap;
+		background-color: #D3E0EA;
+		margin-left: -50px;
+		margin-right: -50px;
+	}
+	.featured-content .featured-content-img {
+		position: initial;
+		margin: 0 auto;
+		left: 0;
+		padding-top: 50px;
+	}
+	.mobile-item {
+		height: 150px;
+		background-size: cover;
+		background-position: center;
+		text-align: center;
+		box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+		-webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+	}
+	.mobile-year {
+		color: #eee;
+		height: 100%;
+	}
+	.dark-overlay {
+		background-color: rgba(0, 0, 0, 0.7);
+		height: 100%;
+	}
+	.mobile-event-title {
+		font-size: 26px;
+		padding-top: 10%;
+	}
+
+	/* SINGLE EVENTS PAGE */
+	.single-tribe_events .wrapper main {
+		overflow: auto;
+	}
+
+}
 
 @media only screen and (min-width:1024px) {}
 
