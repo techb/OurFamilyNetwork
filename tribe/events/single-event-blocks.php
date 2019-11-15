@@ -17,6 +17,12 @@
 
 $event_id = $this->get( 'post_id' );
 
+$tags = get_the_tags($event_id);
+$post_tags = array();
+foreach( $tags as $tag ){
+	$post_tags[] = $tag->slug;
+}
+
 $is_recurring = '';
 
 if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
@@ -32,18 +38,27 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
 		color: #009fd4 !important;
 	}
 </style>
+<?php if( is_user_logged_in() || in_array('demo', $post_tags) ){ ?>
 
-<div id="tribe-events-content" class="tribe-events-single tribe-blocks-editor">
-	<?php $this->template( 'single-event/back-link' ); ?>
-	<?php $this->template( 'single-event/notices' ); ?>
-	<?php $this->template( 'single-event/title' ); ?>
-	<?php if ( $is_recurring ) { ?>
-		<?php $this->template( 'single-event/recurring-description' ); ?>
-	<?php } ?>
-	<?php $this->template( 'single-event/content' ); ?>
-	<?php $this->template( 'single-event/comments' ); ?>
-	<?php $this->template( 'single-event/footer' ); ?>
-</div>
+	<div id="tribe-events-content" class="tribe-events-single tribe-blocks-editor">
+		<?php $this->template( 'single-event/back-link' ); ?>
+		<?php $this->template( 'single-event/notices' ); ?>
+		<?php $this->template( 'single-event/title' ); ?>
+		<?php if ( $is_recurring ) { ?>
+			<?php $this->template( 'single-event/recurring-description' ); ?>
+		<?php } ?>
+		<?php $this->template( 'single-event/content' ); ?>
+		<?php $this->template( 'single-event/comments' ); ?>
+		<?php $this->template( 'single-event/footer' ); ?>
+	</div>
+
+<?php }else{ ?>
+	<script>
+		jQuery().ready(function(){
+			window.location.href='/events/';
+		});
+	</script>
+<?php } ?>
 
 <?php edit_post_link(); ?>
 

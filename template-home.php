@@ -59,13 +59,8 @@ if( is_user_logged_in() ){
 					<?php } ?>
 			</section>
 
-
 			<section id="mobile-timeline" class="mobile">
 				<?php
-					$args = array(
-						'posts_per_page' => 4,
-						'start_date' => date("Y-m-d", strtotime("-1 months")),
-					);
 					$events = tribe_get_events($args);
 					foreach( $events as $event ){ ?>
 						<a href="<?php echo $event->guid; ?>">
@@ -91,36 +86,5 @@ if( is_user_logged_in() ){
 					}
 				?>
 			</section>
-
-
-	<!--
-		If user not logged in, display the Under Construction page.
-	-->
-	<!-- <section id="primary" class="content-area">
-		<main id="main" class="site-main">
-		<style>
-			* {
-				background-color: darkgrey;
-			}
-			body {
-				display: flex;
-				flex-direction: column;
-				justify-content: space-around;
-				text-align: center;
-				padding-top: 20%;
-			}
-			.place-hold {
-				display: flex;
-				flex-direction: column;
-				margin: auto auto;
-			}
-		</style>
-		<div class="place-hold">
-			<h1>Currently Under Construction</h1>
-			<h4>Please Log in to view website</h4>
-		</div>
-
-	</main>
-</section>#primary -->
 
 <?php edit_post_link(); get_footer(); ?>
