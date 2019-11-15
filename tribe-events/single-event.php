@@ -282,6 +282,11 @@ $event_id = get_the_ID();
 	<script>
 
 		window.onload = function(){
+
+			// To-Do:
+			// Add tel: and mail-to: to venu info
+
+
 			const comment_area = document.querySelector(".comments .comment-respond .comment-form .comment-form-comment textarea");
 			comment_area.placeholder = "Leave a reply";
 
