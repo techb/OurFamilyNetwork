@@ -11,9 +11,11 @@ if( is_user_logged_in() ){
 		<main id="main" class="site-main">
 
 			<div class="featured-content">
-				<img class="featured-content-img"
-					src="<?php echo get_field('featured_content_img') ?>"
-				/>
+				<div class="featured-content-img">
+					<img class="featured-content-img-single"
+						src="<?php echo get_field('featured_content_img') ?>"
+					/>
+				</div>
 				<div class="featured-content-copy">
 					<p><?php echo get_field("featured_content_copy"); ?></p>
 				</div>
@@ -50,7 +52,7 @@ if( is_user_logged_in() ){
 				<?php
 					$args = array(
 						'posts_per_page' => 4,
-						'start_date' => 'now',
+						'start_date' => date("Y-m-d", strtotime("-1 months")),
 					);
 					$events = tribe_get_events($args);
 					foreach( $events as $event ){ ?>

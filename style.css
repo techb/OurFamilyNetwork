@@ -65,6 +65,7 @@ img {
 
 a {
 	color: #444;
+	/* color: #009fd4; */
 	text-decoration: none;
 }
 
@@ -193,7 +194,7 @@ input:focus {
 */
 
 #primary {
-	overflow: auto;
+	overflow: initial;
 }
 
 .featured-content {
@@ -205,11 +206,17 @@ input:focus {
 }
 
 .featured-content .featured-content-img {
-	max-width: 250px;
+	width: 450px;
 	height: auto;
 	position: relative;
-	top: 50px;
+	top: 60px;
 	left: 70px
+}
+
+.featured-content .featured-content-img img {
+	display: block;
+	width: 100%;
+	height: auto;
 }
 
 .featured-content-copy {
@@ -694,6 +701,7 @@ input:focus {
 		margin-right: -50px;
 	}
 	.featured-content .featured-content-img {
+		width: 290px;
 		position: initial;
 		margin: 0 auto;
 		left: 0;
@@ -722,6 +730,12 @@ input:focus {
 	}
 
 	/* SINGLE EVENTS PAGE */
+
+	.tribe_events-template-default .wrapper {
+		padding-left: initial;
+		padding-right: initial;
+	}
+
 	.single-tribe_events .wrapper main {
 		overflow: auto;
 	}
