@@ -4,7 +4,7 @@ OurFamilyNetwork is an events based theme. It was made for families or SoHo esta
 
 ## Installation
 
-Download zip of repo and place in your wp-conten/themes/ folder.
+Download zip of repo and place in your wp-content/themes/ folder.
 
 ## Required
 - The Events Calendar (Tribe) Plugin
