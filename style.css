@@ -23,6 +23,10 @@
 
 /* html element 62.5% font-size for REM use */
 
+.hide-me {
+	display: none;
+}
+
 html {
 	font-size: 62.5%;
 }
@@ -183,6 +187,16 @@ input:focus {
 
 .tnp-field.tnp-field-button input {
 	height: 50px !important;
+}
+
+.sperate-comment-string {
+	margin-top: 0;
+	margin-bottom: 50px;
+	border-top: 1px solid grey;
+}
+
+.comments {
+	margin-top: 10%;
 }
 
 /*------------------------------------*\

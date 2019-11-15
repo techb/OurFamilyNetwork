@@ -63,6 +63,7 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
 <?php edit_post_link(); ?>
 
 <script>
+
 	const comment_input = document.querySelector("#comment");
 	comment_input.placeholder = "Leave a comment";
 	comment_input.rows = 3;
@@ -87,5 +88,7 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
 		v_phone.href = 'tel:'+venu_phone.innerText;
 		wrap(venu_phone, v_phone);
 	}
+
+	jQuery("<hr class='sperate-comment-string' />").insertAfter("li.parent");
 
 </script>
