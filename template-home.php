@@ -4,8 +4,20 @@
 	Template Name: Home Page
 */
 
+get_header();
+
 if( is_user_logged_in() ){
-	get_header(); ?>
+	$args = array(
+		'posts_per_page' => 4,
+		'start_date' => date("Y-m-d", strtotime("-1 months")),
+	);
+}else{
+	$args = array(
+		'posts_per_page' => 4,
+		'tag' => ['demo']
+	);
+}
+?>
 
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main">
@@ -24,10 +36,10 @@ if( is_user_logged_in() ){
 			<!-- https://codepen.io/jeffglenn/pen/KNYoKa/ -->
 			<section id="timeline" class="desktop">
 				<?php
-					$args = array(
-						'posts_per_page' => 4,
-						'start_date' => date("Y-m-d", strtotime("-1 months")),
-					);
+					// $args = array(
+					// 	'posts_per_page' => 4,
+					// 	'start_date' => date("Y-m-d", strtotime("-1 months")),
+					// );
 					$events = tribe_get_events($args);
 					// var_dumpp(date("m-Y", strtotime("-1 months")));
 					foreach( $events as $event ){ ?>
@@ -80,12 +92,11 @@ if( is_user_logged_in() ){
 				?>
 			</section>
 
-<?php }else{ ?>
 
 	<!--
 		If user not logged in, display the Under Construction page.
 	-->
-	<section id="primary" class="content-area">
+	<!-- <section id="primary" class="content-area">
 		<main id="main" class="site-main">
 		<style>
 			* {
@@ -109,9 +120,7 @@ if( is_user_logged_in() ){
 			<h4>Please Log in to view website</h4>
 		</div>
 
-<?php } edit_post_link(); ?>
+	</main>
+</section>#primary -->
 
-	</main><!-- #main -->
-</section><!-- #primary -->
-
-<?php get_footer(); ?>
+<?php edit_post_link(); get_footer(); ?>
