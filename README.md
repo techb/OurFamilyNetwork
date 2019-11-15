@@ -10,3 +10,6 @@ Download zip of repo and place in your wp-conten/themes/ folder.
 - The Events Calendar (Tribe) Plugin
 - A minimum of 4 demo/dummy events to show for users not logged in.
 - A minimum of 4 events in general, else the event section on the homepage breaks
+
+## Demo Website
+[OurFamilyNetwork](https://ourfamilynetwork.org)
