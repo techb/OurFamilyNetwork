@@ -474,4 +474,5 @@ function generateRandomString($length = 10) {
 	return $randomString;
 }
 
+
 ?>

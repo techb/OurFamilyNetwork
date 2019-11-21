@@ -78,7 +78,7 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
 	const org_email = document.querySelector(".tribe-block__organizer__email");
 	if( org_email ){
 		const o_email = document.createElement('a');
-		o_email.href = 'tel:'+org_email.innerText;
+		o_email.href = 'mailto:'+org_email.innerText;
 		wrap(org_email, o_email);
 	}
 
