@@ -40,6 +40,15 @@
 				<?php html5blank_nav(); ?>
 			</nav>
 			<!-- /nav -->
+
+			<?php if( is_user_logged_in() ) { ?>
+				<script>
+					const nav = document.querySelector(".nav ul li:last-child a");
+					nav.text = "Profile"
+					nav.href = "/wp-admin"
+				</script>
+			<?php } ?>
+
 		</header>
 		<!-- /header -->
 
