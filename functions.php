@@ -474,5 +474,17 @@ function generateRandomString($length = 10) {
 	return $randomString;
 }
 
+// load style sheet for login page
+function my_custom_login(){
+	echo '<link rel="stylesheet" type="text/css" href="/wp-content/themes/OurFamilyNetwork/login/style.css" />';
+}
+add_action('login_head', 'my_custom_login');
+
+// change error message for login page
+function custom_login_error_message() {
+	return 'Please enter valid login credentials.';
+}
+add_filter('login_errors', 'custom_login_error_message');
+
 
 ?>

@@ -1,0 +1,55 @@
+body.login
+{
+	background-image: url("../img/man-beach-holiday-woman-39691.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+#login h1 a {
+	display: none;
+}
+
+.login form{
+	box-shadow: none;
+	padding: 20px;
+}
+
+#login {
+	background: #FFF;
+	margin: 50px auto;
+	padding: 40px 20px;
+	width: 400px;
+}
+
+.login label {
+	color: #555;
+	font-size: 14px;
+}
+
+.login form .forgetmenot{
+	float: none;
+}
+
+#login form p.submit{
+	margin-top: 15px;
+}
+
+.login.wp-core-ui .button-primary {
+	background: #e04a92;
+	border-color:#e04a92;
+	box-shadow: 0 1px 0 #e04a92;
+	color: #FFF;
+	text-shadow: none;
+	float: none;
+	clear: both;
+	display: block;
+	width: 100%;
+	padding: 7px;
+	height: auto;
+	font-size: 15px;
+}
+
+p#backtoblog, p#nav {
+	display: none;
+}
