@@ -9,12 +9,15 @@ get_header();
 if( is_user_logged_in() ){
 	$args = array(
 		'posts_per_page' => 4,
-		'start_date' => date("Y-m-d", strtotime("-1 months")),
+		// 'start_date' => 'now',
+		'start_date' => date('Y-m-d', strtotime("last month")),
+		'order' => 'DESC',
 	);
+	$events = tribe_get_events($args);
 }else{
 	$args = array(
 		'posts_per_page' => 4,
-		'tag' => ['public']
+		'tag' => 'public'
 	);
 }
 ?>
