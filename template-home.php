@@ -9,9 +9,16 @@ get_header();
 if( is_user_logged_in() ){
 	$args = array(
 		'posts_per_page' => 4,
-		// 'start_date' => 'now',
 		'start_date' => date('Y-m-d', strtotime("last month")),
 		'order' => 'DESC',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'post_tag',
+				'field' => 'id',
+				'terms' => [4],
+				'operator' => 'NOT IN'
+			),
+		),
 	);
 	$events = tribe_get_events($args);
 }else{
