@@ -33,7 +33,11 @@
 	<body <?php body_class(); ?>>
 		<!-- header -->
 		<header class="header clear" role="banner">
-			<div class="hero" style="background-image: url(<?php echo get_the_post_thumbnail_url($wp_query->post->ID); ?>);">
+			<?php if( get_the_ID() == 144 ){ ?>
+				<div class="hero" style="background-image: url(/wp-content/uploads/2019/12/group-of-people-standing-inside-room-2608517.jpg);">
+			<?php }else{ ?>
+				<div class="hero" style="background-image: url(<?php echo get_the_post_thumbnail_url($wp_query->post->ID); ?>);">
+			<?php } ?>
 			</div>
 			<!-- nav -->
 			<nav class="nav" role="navigation">

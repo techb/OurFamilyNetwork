@@ -38,7 +38,7 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
 		color: #009fd4 !important;
 	}
 </style>
-<?php if( is_user_logged_in() || in_array('demo', $post_tags) ){ ?>
+<?php if( is_user_logged_in() || in_array('public', $post_tags) ){ ?>
 
 	<div id="tribe-events-content" class="tribe-events-single tribe-blocks-editor">
 		<?php $this->template( 'single-event/back-link' ); ?>
